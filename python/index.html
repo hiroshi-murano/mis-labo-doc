@@ -367,19 +367,68 @@ code {
           : 'default'
     });
   </script>
-<h1 id="json">json</h1>
-<ul>
-<li>jsonの読み込み</li>
-<li>jsonの書き込み</li>
-</ul>
-<pre class="hljs"><code><div>dfdfdaf
-df
-d
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-f
-d
-fad
+<h1 id="%E5%9F%BA%E6%9C%AC%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88">基本テンプレート</h1>
+<pre class="hljs"><code><div>import datetime
 
+
+def func1():
+    &quot;&quot;&quot;
+    &quot;&quot;&quot;
+
+    today = datetime.datetime.now()
+    print(today.strftime(&quot;%Y/%m/%d %H:%M:%S&quot;))
+
+
+if __name__ == '__main__':
+
+    func1()
+</div></code></pre>
+<h1 id="json">json</h1>
+<h2 id="%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF">書き込み</h2>
+<pre class="hljs"><code><div>import json
+import codecs
+
+dictData = {}
+dictData['名前'] = '斉藤'
+dictData['年齢'] = 25
+dictData['体重'] = 54.3
+dictData['入社日'] = '1995-09-15'
+
+json_text = json.dumps(dictData, ensure_ascii=False, indent=2)
+
+fp = codecs.open('sample.json', 'w', 'utf-8')
+fp.write(json_text)
+fp.close()
+</div></code></pre>
+<h2 id="%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF">読み込み</h2>
+<pre class="hljs"><code><div>import json
+import codecs
+
+fp = codecs.open('sample.json', 'r', 'utf-8')
+json_text = fp.read()
+fp.close()
+
+dictData = json.loads(json_text)
+print(dictData)
+</div></code></pre>
+<h1 id="%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB">テキストファイル</h1>
+<h2 id="%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF">書き込み</h2>
+<pre class="hljs"><code><div>import codecs
+
+text = 'ああああああ\nいいいいいいい\nうううううう'
+
+fp = codecs.open('sample.txt', 'w', 'utf-8')
+fp.write(text)
+fp.close()
+</div></code></pre>
+<h2 id="%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF">読み込み</h2>
+<pre class="hljs"><code><div>import codecs
+
+fp = codecs.open('sample.txt', 'r', 'utf-8')
+text = fp.read()
+fp.close()
+
+print(text)
 </div></code></pre>
 
 </body>
