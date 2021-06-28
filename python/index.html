@@ -367,7 +367,25 @@ code {
           : 'default'
     });
   </script>
-<h1 id="%E5%9F%BA%E6%9C%AC%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88">基本テンプレート</h1>
+<!-- TOC -->
+<ul>
+<li><a href="#1-%E5%9F%BA%E6%9C%AC%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88">1. 基本テンプレート</a></li>
+<li><a href="#2-json">2. json</a>
+<ul>
+<li><a href="#21-%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF">2.1. 書き込み</a></li>
+<li><a href="#22-%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF">2.2. 読み込み</a></li>
+</ul>
+</li>
+<li><a href="#3-%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB">3. テキストファイル</a>
+<ul>
+<li><a href="#31-%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF">3.1. 書き込み</a></li>
+<li><a href="#32-%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF">3.2. 読み込み</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="1-%E5%9F%BA%E6%9C%AC%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88">1. 基本テンプレート</h1>
+<p><a id="markdown-%E5%9F%BA%E6%9C%AC%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88" name="%E5%9F%BA%E6%9C%AC%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88"></a></p>
 <pre class="hljs"><code><div>import datetime
 
 
@@ -383,8 +401,10 @@ if __name__ == '__main__':
 
     func1()
 </div></code></pre>
-<h1 id="json">json</h1>
-<h2 id="%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF">書き込み</h2>
+<h1 id="2-json">2. json</h1>
+<p><a id="markdown-json" name="json"></a></p>
+<h2 id="21-%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF">2.1. 書き込み</h2>
+<p><a id="markdown-%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF" name="%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF"></a></p>
 <pre class="hljs"><code><div>import json
 import codecs
 
@@ -400,7 +420,8 @@ fp = codecs.open('sample.json', 'w', 'utf-8')
 fp.write(json_text)
 fp.close()
 </div></code></pre>
-<h2 id="%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF">読み込み</h2>
+<h2 id="22-%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF">2.2. 読み込み</h2>
+<p><a id="markdown-%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF" name="%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF"></a></p>
 <pre class="hljs"><code><div>import json
 import codecs
 
@@ -411,8 +432,10 @@ fp.close()
 dictData = json.loads(json_text)
 print(dictData)
 </div></code></pre>
-<h1 id="%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB">テキストファイル</h1>
-<h2 id="%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF">書き込み</h2>
+<h1 id="3-%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB">3. テキストファイル</h1>
+<p><a id="markdown-%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB" name="%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"></a></p>
+<h2 id="31-%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF">3.1. 書き込み</h2>
+<p><a id="markdown-%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF" name="%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF"></a></p>
 <pre class="hljs"><code><div>import codecs
 
 text = 'ああああああ\nいいいいいいい\nうううううう'
@@ -421,7 +444,8 @@ fp = codecs.open('sample.txt', 'w', 'utf-8')
 fp.write(text)
 fp.close()
 </div></code></pre>
-<h2 id="%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF">読み込み</h2>
+<h2 id="32-%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF">3.2. 読み込み</h2>
+<p><a id="markdown-%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF" name="%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF"></a></p>
 <pre class="hljs"><code><div>import codecs
 
 fp = codecs.open('sample.txt', 'r', 'utf-8')

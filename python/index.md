@@ -1,4 +1,22 @@
-# 基本テンプレート
+
+<!-- TOC -->
+
+- [1. 基本テンプレート](#1-%E5%9F%BA%E6%9C%AC%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88)
+- [2. json](#2-json)
+    - [2.1. 書き込み](#21-%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF)
+    - [2.2. 読み込み](#22-%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF)
+- [3. テキストファイル](#3-%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB)
+    - [3.1. 書き込み](#31-%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF)
+    - [3.2. 読み込み](#32-%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF)
+
+<!-- /TOC -->
+
+# 1. 基本テンプレート
+<a id="markdown-%E5%9F%BA%E6%9C%AC%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88" name="%E5%9F%BA%E6%9C%AC%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88"></a>
+
+
+
+
 
 ```
 import datetime
@@ -18,9 +36,11 @@ if __name__ == '__main__':
 ```
 
 
-# json
+# 2. json
+<a id="markdown-json" name="json"></a>
 
-## 書き込み
+## 2.1. 書き込み
+<a id="markdown-%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF" name="%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF"></a>
 
 ```
 import json
@@ -40,7 +60,8 @@ fp.close()
 ```
 
 
-## 読み込み
+## 2.2. 読み込み
+<a id="markdown-%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF" name="%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF"></a>
 
 ```
 import json
@@ -56,9 +77,11 @@ print(dictData)
 
 
 
-# テキストファイル
+# 3. テキストファイル
+<a id="markdown-%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB" name="%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"></a>
 
-## 書き込み
+## 3.1. 書き込み
+<a id="markdown-%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF" name="%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF"></a>
 
 ```
 import codecs
@@ -71,7 +94,8 @@ fp.close()
 ```
 
 
-## 読み込み
+## 3.2. 読み込み
+<a id="markdown-%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF" name="%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF"></a>
 
 ```
 import codecs
