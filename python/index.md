@@ -8,6 +8,10 @@
 - [3. テキストファイル](#3-%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB)
     - [3.1. 書き込み](#31-%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF)
     - [3.2. 読み込み](#32-%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF)
+- [4. ファイル名・path](#4-%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E5%90%8D%E3%83%BBpath)
+- [5. openpyxl](#5-openpyxl)
+    - [5.1. 読み込み](#51-%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF)
+    - [5.2. 書き込み](#52-%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF)
 
 <!-- /TOC -->
 
@@ -105,4 +109,106 @@ text = fp.read()
 fp.close()
 
 print(text)
+```
+
+
+# 4. ファイル名・path
+<a id="markdown-%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E5%90%8D%E3%83%BBpath" name="%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E5%90%8D%E3%83%BBpath"></a>
+
+
+```
+import os
+
+fname = r'c:\temp\abc.xlsx'
+
+dirname = os.path.dirname(fname)
+print(dirname)
+
+basename = os.path.basename(fname)
+print(basename)
+
+root, ext = os.path.splitext(basename)
+print(root)
+print(ext)
+```
+
+
+# 5. openpyxl
+<a id="markdown-openpyxl" name="openpyxl"></a>
+
+
+## 5.1. 読み込み
+<a id="markdown-%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF" name="%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF"></a>
+
+```
+import openpyxl
+
+# セルへのアクセス
+wb = openpyxl.load_workbook('test.xlsx')
+ws = wb['Sheet1']
+
+for row in range(1,  ws.max_row + 1):
+    for col in range(1,  ws.max_column + 1):
+        data = ws.cell(row=row, column=col).value
+        print(data)
+
+wb.close()
+
+
+# iter_rowsを使って行単位でアクセス
+wb = openpyxl.load_workbook('test.xlsx')
+ws = wb['Sheet1']
+
+for row in ws.iter_rows():
+    print(row[0].value)
+    print(row[1].value)
+    print(row[2].value)
+    print(row[3].value)
+
+wb.close()
+
+# valuesを使ってシートを一気に読み込む
+wb = openpyxl.load_workbook('test.xlsx')
+ws = wb['Sheet1']
+
+for row in ws.values:
+    print(row)
+
+wb.close()
+```
+
+
+
+## 5.2. 書き込み
+<a id="markdown-%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF" name="%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF"></a>
+
+
+
+```
+import openpyxl
+import datetime
+
+# 既存ファイルへの書き込み
+wb = openpyxl.load_workbook('test.xlsx')
+ws = wb['Sheet1']
+
+ws.cell(row=2, column=1).value = '伊集院'
+ws.cell(row=2, column=2).value = 43
+ws.cell(row=2, column=3).value = 59.4
+ws.cell(row=2, column=4).value = datetime.datetime.today()
+
+wb.save('test2.xlsx')
+
+
+# 新規ファイル作成
+wb = openpyxl.Workbook()
+ws = wb.active
+ws.title = 'サンプルデータ'
+
+ws.cell(row=2, column=1).value = '伊集院'
+ws.cell(row=2, column=2).value = 43
+ws.cell(row=2, column=3).value = 59.4
+ws.cell(row=2, column=4).value = datetime.datetime.today()
+
+wb.save('test3.xlsx')
 ```
