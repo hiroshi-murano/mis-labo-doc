@@ -12,6 +12,7 @@
 - [5. openpyxl](#5-openpyxl)
     - [5.1. 読み込み](#51-%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF)
     - [5.2. 書き込み](#52-%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF)
+    - [5.3. 書き込み書式付き](#53-%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF%E6%9B%B8%E5%BC%8F%E4%BB%98%E3%81%8D)
 
 <!-- /TOC -->
 
@@ -211,4 +212,62 @@ ws.cell(row=2, column=3).value = 59.4
 ws.cell(row=2, column=4).value = datetime.datetime.today()
 
 wb.save('test3.xlsx')
+```
+
+## 5.3. 書き込み(書式付き)
+<a id="markdown-%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF%E6%9B%B8%E5%BC%8F%E4%BB%98%E3%81%8D" name="%E6%9B%B8%E3%81%8D%E8%BE%BC%E3%81%BF%E6%9B%B8%E5%BC%8F%E4%BB%98%E3%81%8D"></a>
+
+```
+import datetime
+import openpyxl
+from openpyxl.styles.borders import Border, Side
+from openpyxl.styles import PatternFill
+from openpyxl.styles import Font
+
+
+def writeData(cell, txt, color):
+    """
+    フォント・背景色、罫線を指定してテキストを書き込む
+    """
+
+    side = Side(style='thin', color='000000')
+    border = Border(top=side, bottom=side, left=side, right=side)
+    fill = PatternFill(patternType='solid', fgColor=color)
+    font = Font(name='Meiryo UI')
+
+    cell.value = txt
+    cell.border = border
+    cell.fill = fill
+    cell.font = font
+
+
+def writeText(cell, txt):
+    """
+    フォントを指定してテキストを書き込む
+    """
+
+    font = Font(name='Meiryo UI')
+    cell.value = txt
+    cell.font = font
+
+
+def func1():
+    """
+    """
+
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    ws.title = 'サンプルデータ'
+
+    writeData(ws.cell(row=2, column=1), '伊集院', 'ddFFFF')
+    writeData(ws.cell(row=2, column=2), 43, 'FFFFee')
+    writeText(ws.cell(row=2, column=3), 54.3)
+    writeText(ws.cell(row=2, column=4), datetime.datetime.today())
+
+    wb.save('test4.xlsx')
+
+
+if __name__ == '__main__':
+
+    func1()
 ```
